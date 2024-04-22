@@ -21,7 +21,7 @@ export const TeamPage = () => {
       {loading && <div>Loading...</div>}
       {error && <div>Team not found.</div>}
 
-      {data && (
+      {data && data.matches && (
         <div>
           <h1>{data.teamName}</h1>
           <MatchDetailCard teamName={data.teamName} match={data.matches[0]} />
