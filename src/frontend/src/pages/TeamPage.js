@@ -1,3 +1,4 @@
+import "./TeamPage.scss";
 import { React } from "react";
 import { useParams } from "react-router-dom";
 import { MatchDetailCard } from "../components/MatchDetailCard";
@@ -17,14 +18,21 @@ export const TeamPage = () => {
   });
 
   return (
-    <div className="TeamPage">
+    <div>
       {loading && <div>Loading...</div>}
       {error && <div>Team not found.</div>}
 
       {data && data.matches && (
-        <div>
-          <h1>{data.teamName}</h1>
-          <MatchDetailCard teamName={data.teamName} match={data.matches[0]} />
+        <div className="TeamPage">
+          <div className="team-name-section">
+            <h1 className="team-name">{data.teamName}</h1>
+          </div>
+          <div className="win-loss-section">Wins / Losses</div>
+          <div className="match-detail-section">
+            <h3>Latest Matches</h3>
+            <MatchDetailCard teamName={data.teamName} match={data.matches[0]} />
+          </div>
+
           {data.matches.slice(1).map((match) => (
             <MatchSmallCard
               teamName={data.teamName}
@@ -32,6 +40,9 @@ export const TeamPage = () => {
               key={match.id}
             />
           ))}
+          <div>
+            <a href="#">More</a>
+          </div>
         </div>
       )}
     </div>

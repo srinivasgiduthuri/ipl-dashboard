@@ -1,0 +1,23 @@
+.TeamPage {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+
+  .team-name-section {
+    grid-column: span 4;
+    justify-self: start;
+    align-self: end;
+  }
+
+  .team-name {
+    font-size: 4rem;
+  }
+
+  .win-loss-section {
+    justify-self: center;
+  }
+
+  .match-detail-section {
+    grid-column: span 5;
+  }
+}
