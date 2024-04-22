@@ -5,6 +5,7 @@ import com.amigoscorp.ipl.model.Team;
 import com.amigoscorp.ipl.repository.MatchRepository;
 import com.amigoscorp.ipl.repository.TeamRepository;
 import java.util.List;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,7 @@ public class TeamController {
   }
 
   @GetMapping("/team/{teamName}")
+  @CrossOrigin
   public Team getTeam(@PathVariable String teamName) {
     Team team = teamRepository.findByTeamName(teamName);
     List<Match> matches = matchRepository.findLatestMatchesByTeam(teamName, 5);
