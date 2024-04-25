@@ -32,7 +32,7 @@ public class MatchBatchConfiguration {
   }
 
   @Bean
-  public JpaTransactionManager jpaTransactionManager(DataSource dataSource) {
+  public JpaTransactionManager transactionManager(DataSource dataSource) {
     final JpaTransactionManager tm = new JpaTransactionManager();
     tm.setDataSource(dataSource);
     return tm;
